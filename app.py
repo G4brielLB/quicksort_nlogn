@@ -17,7 +17,7 @@ def save_to_csv(data, filename, headers):
         writer.writerow(headers)
         writer.writerows(data)
 
-N = 200000 #alterar para o tamanho do arquivo
+N = 1000 #alterar para o tamanho do arquivo
 FILENAME = f'numbers{N}.txt' #alterar para o arquivo desejado
 REPS = 5
 
@@ -28,7 +28,10 @@ def read_file(filename):   #alterar para ler um arquivo de numeros
     
 def measure_time(algorithm, arr):
     start_time = time.time()
-    algorithm(arr)
+    try:
+        algorithm(arr, 0, len(arr) - 1)
+    except TypeError:
+        algorithm(arr)
     return (time.time() - start_time) * 1000 # convertendo para milissegundos
 
 def is_sorted(arr):
@@ -53,7 +56,10 @@ def main():
     # Validação de resultados
     for name, func in algorithms.items():
         sorted_arr = arr.copy()
-        func(sorted_arr)
+        try:
+            func(sorted_arr, 0, len(sorted_arr) - 1)
+        except TypeError:
+            func(sorted_arr)
         if not is_sorted(sorted_arr):
             print(f"Erro: {name} não ordenou corretamente!")
 
@@ -82,7 +88,6 @@ def main():
     if not os.path.exists('results'):
         os.makedirs('results')
 
-    
     def save_to_excel(data, filename, sheet_name, headers):
         if not os.path.exists(filename):
             workbook = openpyxl.Workbook()

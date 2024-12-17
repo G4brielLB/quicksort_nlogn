@@ -1,3 +1,5 @@
+import time
+
 # Função para mesclar duas sublistas ordenadas
 def merge(arr, left, mid, right):
     # Cria subarrays temporários

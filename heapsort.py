@@ -1,3 +1,5 @@
+import time
+
 # Função para transformar o array em um Max-Heap
 def heapify(arr, n, i):
     largest = i       # Inicializa o maior como a raiz
