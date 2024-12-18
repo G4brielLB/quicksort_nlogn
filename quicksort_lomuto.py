@@ -1,14 +1,12 @@
 def quicksort(A, lo, hi):
     # Verifica se os índices são válidos
-    if lo >= hi or lo < 0:
-        return
-
-    # Realiza a partição e obtém o índice do pivô
-    p = lomuto(A, lo, hi)
-    
-    # Ordena as duas partições
-    quicksort(A, lo, p - 1)  # Lado esquerdo do pivô
-    quicksort(A, p + 1, hi)  # Lado direito do pivô
+    if lo < hi:
+        # Realiza a partição e obtém o índice do pivô
+        p = lomuto(A, lo, hi)
+        
+        # Ordena as duas partições
+        quicksort(A, lo, p - 1)  # Lado esquerdo do pivô
+        quicksort(A, p + 1, hi)  # Lado direito do pivô
 
 def lomuto(A, lo, hi):
     # Escolhe o último elemento como pivô

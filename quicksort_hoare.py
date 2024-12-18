@@ -1,5 +1,11 @@
 def quicksort(A, lo, hi):
-    if lo >= 0 and hi >= 0 and lo < hi:
+    # if lo >= 0 and hi >= 0 and lo < hi:
+    #     # Realiza a partição e obtém o índice do pivô
+    #     p = hoare(A, lo, hi)
+    #     # Ordena as duas partições
+    #     quicksort(A, lo, p)     # O pivô é incluído na partição esquerda
+    #     quicksort(A, p + 1, hi) # Partição direita
+    if lo < hi:
         # Realiza a partição e obtém o índice do pivô
         p = hoare(A, lo, hi)
         # Ordena as duas partições
