@@ -1,3 +1,4 @@
 envsort/
 __pycache__/
 output/
+.vscode/

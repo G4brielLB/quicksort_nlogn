@@ -4,13 +4,13 @@ def quicksort(A, lo, hi):
         return
 
     # Realiza a partição e obtém o índice do pivô
-    p = lamuto(A, lo, hi)
+    p = lomuto(A, lo, hi)
     
     # Ordena as duas partições
     quicksort(A, lo, p - 1)  # Lado esquerdo do pivô
     quicksort(A, p + 1, hi)  # Lado direito do pivô
 
-def lamuto(A, lo, hi):
+def lomuto(A, lo, hi):
     # Escolhe o último elemento como pivô
     pivot = A[hi]
 

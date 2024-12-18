@@ -1,5 +1,5 @@
 from quicksort_hoare import quicksort as quicksort_hoare
-from quicksort_lamuto import quicksort as quicksort_lamuto
+from quicksort_lomuto import quicksort as quicksort_lomuto
 from heapsort import heap_sort
 from mergesort import merge_sort
 
@@ -29,7 +29,7 @@ def read_file(filename):   #alterar para ler um arquivo de numeros
 def main():
     algorithms = {
         "Quicksort (Hoare)": quicksort_hoare,
-        "Quicksort (Lomuto)": quicksort_lamuto,
+        "Quicksort (Lomuto)": quicksort_lomuto,
         "Heapsort": heap_sort,
         "Mergesort": merge_sort
     }
@@ -67,10 +67,6 @@ def main():
     print(tabulate(table, headers=["Algoritmo", "Tempo Médio", "Desvio Padrão"]))
 
     # Criar diretórios se não existirem
-    if not os.path.exists('details'):
-        os.makedirs('details')
-    if not os.path.exists('general'):
-        os.makedirs('general')
     if not os.path.exists('results'):
         os.makedirs('results')
 
@@ -95,11 +91,11 @@ def main():
         std_dev = statistics.stdev(tempos)
         individual_data.append(["Média", f"{avg_time:.4f} ms"])
         individual_data.append(["Desvio Padrão", f"{std_dev:.4f} ms"])
-        save_to_excel(individual_data, f"results/{name.replace(' ', '_').lower()}_details.xlsx", f"N={N}", ["Execução", "Tempo (ms)"])
+        #save_to_excel(individual_data, f"results/{name.replace(' ', '_').lower()}_details.xlsx", f"N={N}", ["Execução", "Tempo (ms)"])
     
     # Salvar resultados comparativos em Excel
     comparative_data = [[name, f"{statistics.mean(tempos):.4f} ms"] for name, tempos in results.items()]
-    save_to_excel(comparative_data, f"results/comparative_results.xlsx", f"N={N}", ["Algoritmo", "Tempo Médio (ms)"])
+    #save_to_excel(comparative_data, f"results/comparative_results.xlsx", f"N={N}", ["Algoritmo", "Tempo Médio (ms)"])
 
 if __name__ == "__main__":
     main()
