@@ -11,7 +11,7 @@ import pandas as pd
 import os
 import openpyxl
 
-N = 500 #alterar para o tamanho do arquivo
+N = 100000 #alterar para o tamanho do arquivo
 FILENAME = f'numbers{N}.txt' #alterar para o arquivo desejado
 REPS = 5
 
@@ -95,7 +95,7 @@ def main():
     
     # Salvar resultados comparativos em Excel
     comparative_data = [[name, f"{statistics.mean(tempos):.4f} ms"] for name, tempos in results.items()]
-    save_to_excel(comparative_data, f"results/comparative_results.xlsx", f"N={N}", ["Algoritmo", "Tempo Médio (ms)"])
+    save_to_excel(comparative_data, f"results/comparative_results{N}.xlsx", f"N={N}", ["Algoritmo", "Tempo Médio (ms)"])
 
 if __name__ == "__main__":
     main()
