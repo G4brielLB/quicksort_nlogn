@@ -30,8 +30,7 @@ def lamuto(A, lo, hi):
     return i  # Retorna o índice do pivô
 
 if __name__ == "__main__":
-    with open('/Users/gabriellopesbastos/Documents/Programming/quicksort_nlogn/lists/numbers100000.txt', 'r') as file:
-        arr = [int(line.strip()) for line in file]
+    arr = [10, 7, 8, 9, 1, 5 ]
     print("Array original:", arr)
     quicksort(arr, 0, len(arr) - 1)
     print("Array ordenado:", arr)

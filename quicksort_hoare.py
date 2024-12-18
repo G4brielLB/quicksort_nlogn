@@ -1,5 +1,3 @@
-import time
-
 def quicksort(A, lo, hi):
     if lo >= 0 and hi >= 0 and lo < hi:
         # Realiza a partição e obtém o índice do pivô
