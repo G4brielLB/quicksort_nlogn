@@ -11,7 +11,7 @@ import pandas as pd
 import os
 import openpyxl
 
-N = 200000 #alterar para o tamanho do arquivo
+N = 500 #alterar para o tamanho do arquivo
 FILENAME = f'numbers{N}.txt' #alterar para o arquivo desejado
 REPS = 5
 
@@ -91,11 +91,11 @@ def main():
         std_dev = statistics.stdev(tempos)
         individual_data.append(["Média", f"{avg_time:.4f} ms"])
         individual_data.append(["Desvio Padrão", f"{std_dev:.4f} ms"])
-        #save_to_excel(individual_data, f"results/{name.replace(' ', '_').lower()}_details.xlsx", f"N={N}", ["Execução", "Tempo (ms)"])
+        save_to_excel(individual_data, f"results/{name.replace(' ', '_').lower()}_details.xlsx", f"N={N}", ["Execução", "Tempo (ms)"])
     
     # Salvar resultados comparativos em Excel
     comparative_data = [[name, f"{statistics.mean(tempos):.4f} ms"] for name, tempos in results.items()]
-    #save_to_excel(comparative_data, f"results/comparative_results.xlsx", f"N={N}", ["Algoritmo", "Tempo Médio (ms)"])
+    save_to_excel(comparative_data, f"results/comparative_results.xlsx", f"N={N}", ["Algoritmo", "Tempo Médio (ms)"])
 
 if __name__ == "__main__":
     main()
